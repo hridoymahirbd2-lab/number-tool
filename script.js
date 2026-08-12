@@ -7,7 +7,7 @@ const toast = document.getElementById('toast');
 
 let numbersArray = [];
 
-// ফাইল রিড করা
+// টেক্সট ফাইল রিড করা
 fileInput.addEventListener('change', function(e) {
     const file = e.target.files[0];
     if (!file) return;
@@ -18,7 +18,7 @@ fileInput.addEventListener('change', function(e) {
     reader.readAsText(file);
 });
 
-// নম্বর প্রসেস করা
+// Load Numbers এ ক্লিক করলে প্রসেস হবে এবং ওপরের বক্স ক্লিয়ার হয়ে যাবে
 loadBtn.onclick = () => {
     let text = inputNumbers.value.trim();
     if (!text) return;
@@ -29,7 +29,6 @@ loadBtn.onclick = () => {
     lines.forEach(line => {
         let cleanNum = line.trim();
         if (cleanNum) {
-            // সামনে '+' যুক্ত করা
             if (!cleanNum.startsWith('+')) {
                 cleanNum = '+' + cleanNum;
             }
@@ -39,6 +38,10 @@ loadBtn.onclick = () => {
 
     copiedList.innerHTML = '';
     renderRemaining();
+
+    // লোড হওয়ার পর ওপরের বক্স ও ফাইল ইনপুট ক্লিয়ার করে দেওয়া
+    inputNumbers.value = '';
+    fileInput.value = '';
 };
 
 function renderRemaining() {
@@ -55,14 +58,17 @@ function renderRemaining() {
 function copyAndMove(num, index) {
     navigator.clipboard.writeText(num);
 
+    toast.innerText = "Copied: " + num;
     toast.className = "show";
     setTimeout(() => { toast.className = toast.className.replace("show", ""); }, 1500);
 
+    // মূল লিস্ট থেকে রিমুভ করা
     numbersArray.splice(index, 1);
     renderRemaining();
 
+    // নিচের লিস্টে লাল রঙের স্টাইল সহ যোগ করা
     let copiedDiv = document.createElement('div');
-    copiedDiv.className = 'number-item';
+    copiedDiv.className = 'number-item copied-item';
     copiedDiv.innerText = num;
     copiedList.appendChild(copiedDiv);
 }
