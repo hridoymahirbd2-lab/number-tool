@@ -113,6 +113,15 @@ textarea:focus {
 @keyframes fadein {
     from {bottom: 0; opacity: 0;}
     to {bottom: 30px; opacity: 1;}
+}/* আগের CSS কোড এখানে পেস্ট করুন, সাথে নিচে এটি যোগ করুন */
+#file-input {
+    width: 100%;
+    margin-bottom: 10px;
+    background: #2a2a2a;
+    padding: 5px;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 12px;
 }
 
 @keyframes fadeout {
