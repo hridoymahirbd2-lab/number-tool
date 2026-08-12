@@ -1,4 +1,5 @@
 const inputNumbers = document.getElementById('input-numbers');
+const fileInput = document.getElementById('file-input');
 const loadBtn = document.getElementById('load-btn');
 const remainingList = document.getElementById('remaining-list');
 const copiedList = document.getElementById('copied-list');
@@ -6,16 +7,29 @@ const toast = document.getElementById('toast');
 
 let numbersArray = [];
 
+// ফাইল রিড করা
+fileInput.addEventListener('change', function(e) {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = function(e) {
+        inputNumbers.value = e.target.result;
+    };
+    reader.readAsText(file);
+});
+
+// নম্বর প্রসেস করা
 loadBtn.onclick = () => {
     let text = inputNumbers.value.trim();
     if (!text) return;
 
-    let lines = text.split('\n');
+    let lines = text.split(/\r?\n/);
     numbersArray = [];
 
-    lines.log = lines.forEach(line => {
+    lines.forEach(line => {
         let cleanNum = line.trim();
         if (cleanNum) {
+            // সামনে '+' যুক্ত করা
             if (!cleanNum.startsWith('+')) {
                 cleanNum = '+' + cleanNum;
             }
@@ -38,11 +52,6 @@ function renderRemaining() {
     });
 }
 
-function, copyAndMove(num, index) {
-    // ফাংশন ঠিক করা হলো
-}
-
-// সঠিকভাবে কপি এবং মুভ করার মূল ফাংশন
 function copyAndMove(num, index) {
     navigator.clipboard.writeText(num);
 
