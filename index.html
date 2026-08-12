@@ -3,15 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Number Formatter & Copier</title>
+    <title>HRIDOY Number Tool</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="container">
-        <h2>Nayon BOND</h2>
+        <h2>HRIDOY</h2>
         
-        <textarea id="input-numbers" placeholder="এখানে আপনার নম্বরগুলো পেস্ট করুন (প্রতি লাইনে একটি)..."></textarea>
+        <!-- টেক্সট ফাইল আপলোড বা সরাসরি পেস্ট -->
+        <input type="file" id="file-input" accept=".txt" />
+        <textarea id="input-numbers" placeholder="অথবা এখানে নম্বরগুলো পেস্ট করুন..."></textarea>
         <button id="load-btn">Load Numbers</button>
 
         <div class="section-title">REMAINING NUMBERS LIST</div>
