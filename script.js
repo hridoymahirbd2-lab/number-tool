@@ -1,3 +1,4 @@
+const inputSection = document.getElementById('input-section');
 const inputNumbers = document.getElementById('input-numbers');
 const fileInput = document.getElementById('file-input');
 const prefixInput = document.getElementById('prefix-input');
@@ -19,6 +20,7 @@ setInterval(() => {
     logoTitle.style.textShadow = `0 0 12px ${randomColor}`;
 }, 1000);
 
+// HRIDOY নামে ক্লিক করলে রিসেট হবে এবং ইনপুট অপশনগুলো আবার ফিরে আসবে
 logoTitle.onclick = () => {
     matchedArray = [];
     otherArray = [];
@@ -29,6 +31,9 @@ logoTitle.onclick = () => {
     fileInput.value = '';
     prefixInput.value = '';
     
+    // ইনপুট সেকশন আবার দৃশ্যমান করা
+    inputSection.style.display = 'block';
+
     toast.innerText = "Reset Successfully!";
     toast.className = "show";
     setTimeout(() => { toast.className = toast.className.replace("show", ""); }, 1500);
@@ -61,7 +66,6 @@ loadBtn.onclick = () => {
                 cleanNum = '+' + cleanNum;
             }
 
-            // প্রিফিক্স মিলে গেলেMatched লিস্টে যাবে, না মিললে Other লিস্টে যাবে
             if (prefix && cleanNum.startsWith(prefix)) {
                 matchedArray.push(cleanNum);
             } else if (!prefix) {
@@ -75,8 +79,8 @@ loadBtn.onclick = () => {
     copiedList.innerHTML = '';
     renderLists();
 
-    inputNumbers.value = '';
-    fileInput.value = '';
+    // নম্বর লোড হওয়ার পর পুরো ইনপুট সেকশনটি হাইড করে দেওয়া
+    inputSection.style.display = 'none';
 };
 
 function renderLists() {
