@@ -20,12 +20,14 @@ let copiedArrayCount = 0;
 
 const colors = ['#00ffcc', '#ff0055', '#ffcc00', '#0099ff', '#ff5500', '#cc00ff', '#33ff33'];
 
+// লোগোর রঙ পরিবর্তন
 setInterval(() => {
     const randomColor = colors[Math.floor(Math.random() * colors.length)];
     logoTitle.style.color = randomColor;
     logoTitle.style.textShadow = `0 0 12px ${randomColor}`;
 }, 1000);
 
+// লোগোতে ক্লিক করলে রিসেট হবে
 logoTitle.onclick = () => {
     matchedArray = [];
     otherArray = [];
@@ -47,6 +49,7 @@ logoTitle.onclick = () => {
     setTimeout(() => { toast.className = toast.className.replace("show", ""); }, 1500);
 };
 
+// টেক্সট ফাইল রিড করা
 fileInput.addEventListener('change', function(e) {
     const file = e.target.files[0];
     if (!file) return;
@@ -57,6 +60,7 @@ fileInput.addEventListener('change', function(e) {
     reader.readAsText(file);
 });
 
+// নম্বর লোড এবং ফিল্টার করা
 loadBtn.onclick = () => {
     let text = inputNumbers.value.trim();
     if (!text) return;
@@ -69,8 +73,11 @@ loadBtn.onclick = () => {
     copiedArrayCount = 0;
 
     lines.forEach(line => {
-        let cleanNum = line.trim();
-        if (cleanNum) {
+        let rawLine = line.trim();
+        if (rawLine) {
+            // নম্বরের আগের সব উল্টোপাল্টা অংশ মুছে শুধুমাত্র '+' ও নম্বর রাখা
+            let cleanNum = rawLine.replace(/^[^\+]+/, '');
+            
             if (!cleanNum.startsWith('+')) {
                 cleanNum = '+' + cleanNum;
             }
