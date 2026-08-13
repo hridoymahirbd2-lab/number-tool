@@ -6,11 +6,17 @@ const loadBtn = document.getElementById('load-btn');
 const remainingList = document.getElementById('remaining-list');
 const otherList = document.getElementById('other-list');
 const copiedList = document.getElementById('copied-list');
+
+const matchedCount = document.getElementById('matched-count');
+const otherCount = document.getElementById('other-count');
+const copiedCount = document.getElementById('copied-count');
+
 const toast = document.getElementById('toast');
 const logoTitle = document.getElementById('logo-title');
 
 let matchedArray = [];
 let otherArray = [];
+let copiedArrayCount = 0;
 
 const colors = ['#00ffcc', '#ff0055', '#ffcc00', '#0099ff', '#ff5500', '#cc00ff', '#33ff33'];
 
@@ -20,18 +26,20 @@ setInterval(() => {
     logoTitle.style.textShadow = `0 0 12px ${randomColor}`;
 }, 1000);
 
-// HRIDOY নামে ক্লিক করলে রিসেট হবে এবং ইনপুট অপশনগুলো আবার ফিরে আসবে
 logoTitle.onclick = () => {
     matchedArray = [];
     otherArray = [];
+    copiedArrayCount = 0;
+    
     remainingList.innerHTML = '';
     otherList.innerHTML = '';
     copiedList.innerHTML = '';
+    
     inputNumbers.value = '';
     fileInput.value = '';
     prefixInput.value = '';
     
-    // ইনপুট সেকশন আবার দৃশ্যমান করা
+    updateCounts();
     inputSection.style.display = 'block';
 
     toast.innerText = "Reset Successfully!";
@@ -58,6 +66,7 @@ loadBtn.onclick = () => {
     
     matchedArray = [];
     otherArray = [];
+    copiedArrayCount = 0;
 
     lines.forEach(line => {
         let cleanNum = line.trim();
@@ -78,8 +87,8 @@ loadBtn.onclick = () => {
 
     copiedList.innerHTML = '';
     renderLists();
+    updateCounts();
 
-    // নম্বর লোড হওয়ার পর পুরো ইনপুট সেকশনটি হাইড করে দেওয়া
     inputSection.style.display = 'none';
 };
 
@@ -101,6 +110,14 @@ function renderLists() {
         div.onclick = () => copyAndMoveOther(num, index);
         otherList.appendChild(div);
     });
+
+    updateCounts();
+}
+
+function updateCounts() {
+    matchedCount.innerText = matchedArray.length;
+    otherCount.innerText = otherArray.length;
+    copiedCount.innerText = copiedArrayCount;
 }
 
 function copyAndMoveMatched(num, index) {
@@ -108,6 +125,7 @@ function copyAndMoveMatched(num, index) {
     showToast(num);
 
     matchedArray.splice(index, 1);
+    copiedArrayCount++;
     renderLists();
     addToCopied(num);
 }
@@ -117,6 +135,7 @@ function copyAndMoveOther(num, index) {
     showToast(num);
 
     otherArray.splice(index, 1);
+    copiedArrayCount++;
     renderLists();
     addToCopied(num);
 }
