@@ -11,22 +11,20 @@
     <div class="container">
         <h2 id="logo-title">HRIDOY</h2>
         
-        <input type="file" id="file-input" accept=".txt" />
-        <textarea id="input-numbers" placeholder="অথবা এখানে নম্বরগুলো পেস্ট করুন..."></textarea>
-        
-        <!-- প্রিফিক্স ফিল্টার ইনপুট বক্স -->
-        <input type="text" id="prefix-input" placeholder="যেমন প্রিফিক্স দিন: +6017" />
-        
-        <button id="load-btn">Load Numbers</button>
+        <!-- ইনপুট সেকশন যা লোড হওয়ার পর হাইড হয়ে যাবে -->
+        <div id="input-section">
+            <input type="file" id="file-input" accept=".txt" />
+            <textarea id="input-numbers" placeholder="অথবা এখানে নম্বরগুলো পেস্ট করুন..."></textarea>
+            <input type="text" id="prefix-input" placeholder="যেমন প্রিফিক্স দিন: +6017" />
+            <button id="load-btn">Load Numbers</button>
+        </div>
 
         <div class="lists-wrapper">
-            <!-- নির্দিষ্ট প্রিফিক্সের নম্বর লিস্ট -->
             <div class="list-box">
                 <div class="section-title">MATCHED LIST</div>
                 <div id="remaining-list" class="number-list"></div>
             </div>
 
-            <!-- অন্যান্য বা বাকি নম্বরগুলোর লিস্ট -->
             <div class="list-box">
                 <div class="section-title">OTHER NUMBERS</div>
                 <div id="other-list" class="number-list"></div>
