@@ -11,50 +11,54 @@ body {
 
 .container {
     background: #131b2e;
-    padding: 25px;
+    padding: 20px;
     border-radius: 16px;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
-    width: 350px;
+    width: 400px;
     text-align: center;
     border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 h2 {
-    margin-bottom: 20px;
-    font-size: 24px;
+    margin-bottom: 15px;
+    font-size: 22px;
     letter-spacing: 1px;
     cursor: pointer;
     user-select: none;
     transition: color 0.3s ease;
 }
 
-#file-input {
+#file-input, #prefix-input {
     width: 100%;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     background: #1a233a;
     padding: 8px;
     border-radius: 8px;
-    color: #bbb;
-    font-size: 12px;
+    color: #fff;
+    font-size: 13px;
     border: 1px solid #2a3655;
     box-sizing: border-box;
+}
+
+#prefix-input::placeholder {
+    color: #8a99ad;
 }
 
 textarea {
     width: 100%;
-    height: 70px;
+    height: 55px;
     background: #1a233a;
     color: #fff;
     border: 1px solid #2a3655;
     border-radius: 8px;
-    padding: 10px;
+    padding: 8px;
     resize: none;
     box-sizing: border-box;
     font-size: 13px;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
-textarea:focus {
+textarea:focus, #prefix-input:focus {
     outline: none;
     border-color: #00ffcc;
 }
@@ -63,13 +67,13 @@ textarea:focus {
     background: linear-gradient(135deg, #00ffcc, #00b386);
     color: #000;
     border: none;
-    padding: 10px;
-    font-size: 15px;
+    padding: 9px;
+    font-size: 14px;
     font-weight: bold;
     border-radius: 8px;
     cursor: pointer;
     width: 100%;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     transition: 0.2s;
 }
 
@@ -78,30 +82,39 @@ textarea:focus {
     transform: translateY(-1px);
 }
 
+.lists-wrapper {
+    display: flex;
+    gap: 8px;
+}
+
+.list-box {
+    flex: 1;
+}
+
 .section-title {
-    font-size: 11px;
+    font-size: 10px;
     color: #8a99ad;
     text-align: left;
-    margin: 12px 0 6px 0;
+    margin: 8px 0 4px 0;
     font-weight: bold;
     letter-spacing: 0.5px;
 }
 
 .number-list {
-    max-height: 140px;
+    max-height: 110px;
     overflow-y: auto;
     text-align: left;
 }
 
 .number-item {
     background: #1a233a;
-    padding: 10px 12px;
-    margin: 6px 0;
-    border-radius: 8px;
+    padding: 6px 8px;
+    margin: 4px 0;
+    border-radius: 6px;
     cursor: pointer;
     transition: all 0.2s ease;
     font-family: monospace;
-    font-size: 15px;
+    font-size: 12px;
     border: 1px solid #253250;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
@@ -112,7 +125,6 @@ textarea:focus {
     color: #00ffcc;
 }
 
-/* কপি করা হয়ে গেলে নিচের লিস্টে নম্বরগুলো লাল রঙের দেখাবে */
 .copied-item {
     background: #2a1a1a !important;
     border-color: #ff4d4d !important;
@@ -121,7 +133,7 @@ textarea:focus {
 }
 
 .number-list::-webkit-scrollbar {
-    width: 5px;
+    width: 4px;
 }
 .number-list::-webkit-scrollbar-thumb {
     background: #2a3655;
@@ -130,16 +142,16 @@ textarea:focus {
 
 #toast {
     visibility: hidden;
-    min-width: 180px;
+    min-width: 160px;
     background-color: #00ffcc;
     color: #000;
     text-align: center;
     border-radius: 6px;
-    padding: 10px;
+    padding: 8px;
     position: fixed;
-    bottom: 30px;
+    bottom: 20px;
     z-index: 1;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: bold;
     box-shadow: 0 4px 15px rgba(0,255,204,0.4);
 }
@@ -151,10 +163,10 @@ textarea:focus {
 
 @keyframes fadein {
     from {bottom: 0; opacity: 0;}
-    to {bottom: 30px; opacity: 1;}
+    to {bottom: 20px; opacity: 1;}
 }
 
 @keyframes fadeout {
-    from {bottom: 30px; opacity: 1;}
+    from {bottom: 20px; opacity: 1;}
     to {bottom: 0; opacity: 0;}
 }
