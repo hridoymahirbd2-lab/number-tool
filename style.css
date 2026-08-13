@@ -26,6 +26,7 @@ h2 {
     cursor: pointer;
     user-select: none;
     transition: color 0.3s ease;
+    text-align: center;
 }
 
 #file-input, #prefix-input {
@@ -91,10 +92,11 @@ textarea:focus, #prefix-input:focus {
     flex: 1;
 }
 
+/* সেকশনের টাইটেলগুলো সেন্টারে করা হলো */
 .section-title {
     font-size: 11px;
     color: #8a99ad;
-    text-align: left;
+    text-align: center;
     margin: 10px 0 5px 0;
     font-weight: bold;
     letter-spacing: 0.5px;
@@ -103,9 +105,10 @@ textarea:focus, #prefix-input:focus {
 .number-list {
     max-height: 180px;
     overflow-y: auto;
-    text-align: left;
+    text-align: center;
 }
 
+/* নম্বরগুলোর আইটেম সেন্টারে করা হলো */
 .number-item {
     background: #1a233a;
     padding: 8px 10px;
@@ -117,6 +120,7 @@ textarea:focus, #prefix-input:focus {
     font-size: 13px;
     border: 1px solid #253250;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    text-align: center;
 }
 
 .number-item:hover {
@@ -140,12 +144,13 @@ textarea:focus, #prefix-input:focus {
     border-radius: 10px;
 }
 
-/* ফুটার স্টাইল */
+/* ফুটার ক্রেডিট সেন্টারে করা হলো */
 .footer-credit {
     margin-top: 15px;
     font-size: 11px;
     color: #8a99ad;
     letter-spacing: 0.5px;
+    text-align: center;
 }
 
 .footer-credit a {
