@@ -4,10 +4,34 @@ const loadBtn = document.getElementById('load-btn');
 const remainingList = document.getElementById('remaining-list');
 const copiedList = document.getElementById('copied-list');
 const toast = document.getElementById('toast');
+const logoTitle = document.getElementById('logo-title');
 
 let numbersArray = [];
 
-// টেক্সট ফাইল রিড করা
+// বিভিন্ন সুন্দর কালারের অ্যারে
+const colors = ['#00ffcc', '#ff0055', '#ffcc00', '#0099ff', '#ff5500', '#cc00ff', '#33ff33'];
+
+// অটোমেটিক লোগোর কালার পরিবর্তন
+setInterval(() => {
+    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+    logoTitle.style.color = randomColor;
+    logoTitle.style.textShadow = `0 0 12px ${randomColor}`;
+}, 1000);
+
+// HRIDOY নামের ওপর ক্লিক করলে সাইট রিসেট হবে
+logoTitle.onclick = () => {
+    numbersArray = [];
+    remainingList.innerHTML = '';
+    copiedList.innerHTML = '';
+    inputNumbers.value = '';
+    fileInput.value = '';
+    
+    toast.innerText = "Reset Successfully!";
+    toast.className = "show";
+    setTimeout(() => { toast.className = toast.className.replace("show", ""); }, 1500);
+};
+
+// টেক্সট ফাইল রিড করার ফাংশন
 fileInput.addEventListener('change', function(e) {
     const file = e.target.files[0];
     if (!file) return;
@@ -18,7 +42,7 @@ fileInput.addEventListener('change', function(e) {
     reader.readAsText(file);
 });
 
-// Load Numbers এ ক্লিক করলে প্রসেস হবে এবং ওপরের বক্স ক্লিয়ার হয়ে যাবে
+// Load Numbers বাটনে ক্লিক করলে নম্বর লোড হবে
 loadBtn.onclick = () => {
     let text = inputNumbers.value.trim();
     if (!text) return;
@@ -39,7 +63,6 @@ loadBtn.onclick = () => {
     copiedList.innerHTML = '';
     renderRemaining();
 
-    // লোড হওয়ার পর ওপরের বক্স ও ফাইল ইনপুট ক্লিয়ার করে দেওয়া
     inputNumbers.value = '';
     fileInput.value = '';
 };
@@ -62,11 +85,9 @@ function copyAndMove(num, index) {
     toast.className = "show";
     setTimeout(() => { toast.className = toast.className.replace("show", ""); }, 1500);
 
-    // মূল লিস্ট থেকে রিমুভ করা
     numbersArray.splice(index, 1);
     renderRemaining();
 
-    // নিচের লিস্টে লাল রঙের স্টাইল সহ যোগ করা
     let copiedDiv = document.createElement('div');
     copiedDiv.className = 'number-item copied-item';
     copiedDiv.innerText = num;
