@@ -20,11 +20,12 @@ body {
 }
 
 h2 {
-    color: #00ffcc;
     margin-bottom: 20px;
     font-size: 24px;
     letter-spacing: 1px;
-    text-shadow: 0 0 10px rgba(0, 255, 204, 0.3);
+    cursor: pointer;
+    user-select: none;
+    transition: color 0.3s ease;
 }
 
 #file-input {
@@ -111,7 +112,7 @@ textarea:focus {
     color: #00ffcc;
 }
 
-/* কপি করা হয়ে গেলে নিচের লিস্টে নম্বরগুলো লাল (Red) দেখাবে */
+/* কপি করা হয়ে গেলে নিচের লিস্টে নম্বরগুলো লাল রঙের দেখাবে */
 .copied-item {
     background: #2a1a1a !important;
     border-color: #ff4d4d !important;
