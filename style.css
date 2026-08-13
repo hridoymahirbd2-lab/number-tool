@@ -100,9 +100,8 @@ textarea:focus, #prefix-input:focus {
     letter-spacing: 0.5px;
 }
 
-/* নম্বরের জায়গার উচ্চতা অনেক বড় করা হলো */
 .number-list {
-    max-height: 220px;
+    max-height: 180px;
     overflow-y: auto;
     text-align: left;
 }
@@ -139,6 +138,24 @@ textarea:focus, #prefix-input:focus {
 .number-list::-webkit-scrollbar-thumb {
     background: #2a3655;
     border-radius: 10px;
+}
+
+/* ফুটার স্টাইল */
+.footer-credit {
+    margin-top: 15px;
+    font-size: 11px;
+    color: #8a99ad;
+    letter-spacing: 0.5px;
+}
+
+.footer-credit a {
+    color: #00ffcc;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer-credit a:hover {
+    text-decoration: underline;
 }
 
 #toast {
