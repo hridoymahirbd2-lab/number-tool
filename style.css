@@ -14,14 +14,14 @@ body {
     padding: 20px;
     border-radius: 16px;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
-    width: 400px;
+    width: 420px;
     text-align: center;
     border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 h2 {
     margin-bottom: 15px;
-    font-size: 22px;
+    font-size: 24px;
     letter-spacing: 1px;
     cursor: pointer;
     user-select: none;
@@ -46,7 +46,7 @@ h2 {
 
 textarea {
     width: 100%;
-    height: 55px;
+    height: 60px;
     background: #1a233a;
     color: #fff;
     border: 1px solid #2a3655;
@@ -67,13 +67,13 @@ textarea:focus, #prefix-input:focus {
     background: linear-gradient(135deg, #00ffcc, #00b386);
     color: #000;
     border: none;
-    padding: 9px;
+    padding: 10px;
     font-size: 14px;
     font-weight: bold;
     border-radius: 8px;
     cursor: pointer;
     width: 100%;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     transition: 0.2s;
 }
 
@@ -84,7 +84,7 @@ textarea:focus, #prefix-input:focus {
 
 .lists-wrapper {
     display: flex;
-    gap: 8px;
+    gap: 10px;
 }
 
 .list-box {
@@ -92,29 +92,30 @@ textarea:focus, #prefix-input:focus {
 }
 
 .section-title {
-    font-size: 10px;
+    font-size: 11px;
     color: #8a99ad;
     text-align: left;
-    margin: 8px 0 4px 0;
+    margin: 10px 0 5px 0;
     font-weight: bold;
     letter-spacing: 0.5px;
 }
 
+/* নম্বরের জায়গার উচ্চতা অনেক বড় করা হলো */
 .number-list {
-    max-height: 110px;
+    max-height: 220px;
     overflow-y: auto;
     text-align: left;
 }
 
 .number-item {
     background: #1a233a;
-    padding: 6px 8px;
-    margin: 4px 0;
+    padding: 8px 10px;
+    margin: 5px 0;
     border-radius: 6px;
     cursor: pointer;
     transition: all 0.2s ease;
     font-family: monospace;
-    font-size: 12px;
+    font-size: 13px;
     border: 1px solid #253250;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
@@ -133,7 +134,7 @@ textarea:focus, #prefix-input:focus {
 }
 
 .number-list::-webkit-scrollbar {
-    width: 4px;
+    width: 5px;
 }
 .number-list::-webkit-scrollbar-thumb {
     background: #2a3655;
