@@ -11,7 +11,6 @@
     <div class="container">
         <h2 id="logo-title">HRIDOY</h2>
         
-        <!-- ইনপুট সেকশন যা লোড হওয়ার পর হাইড হয়ে যাবে -->
         <div id="input-section">
             <input type="file" id="file-input" accept=".txt" />
             <textarea id="input-numbers" placeholder="অথবা এখানে নম্বরগুলো পেস্ট করুন..."></textarea>
@@ -21,18 +20,23 @@
 
         <div class="lists-wrapper">
             <div class="list-box">
-                <div class="section-title">MATCHED LIST</div>
+                <div class="section-title">MATCHED LIST (<span id="matched-count">0</span>)</div>
                 <div id="remaining-list" class="number-list"></div>
             </div>
 
             <div class="list-box">
-                <div class="section-title">OTHER NUMBERS</div>
+                <div class="section-title">OTHER NUMBERS (<span id="other-count">0</span>)</div>
                 <div id="other-list" class="number-list"></div>
             </div>
         </div>
 
-        <div class="section-title">COPIED NUMBERS LIST</div>
+        <div class="section-title">COPIED NUMBERS LIST (<span id="copied-count">0</span>)</div>
         <div id="copied-list" class="number-list"></div>
+
+        <!-- ফুটার বা ডেপ্লয়মেন্ট ক্রেডিট -->
+        <div class="footer-credit">
+            DEPLOYMENT BY <a href="https://t.me/hridoyrojikop" target="_blank">TEAMREDX</a>
+        </div>
     </div>
 
     <div id="toast">Copied to clipboard!</div>
